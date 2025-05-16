@@ -32,8 +32,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap()
         .episode_id;
 
-    println!("Episode ID: {}", episode_id);
-
     let route = client.route(Comments {
         episode_id,
         request_comments: dandanapi::RequestComments {
@@ -45,7 +43,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let response = route.await.unwrap();
 
-    println!("Response: {:?}", response);
+    dbg!(response);
 
     Ok(())
 }
